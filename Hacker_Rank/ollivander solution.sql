@@ -28,7 +28,7 @@
 
 */
 
-1=======================================================
+1--------------------------------------------------
 
 
 SELECT W.id, P.age, W.coins_needed, W.power
@@ -42,7 +42,8 @@ WHERE P.is_evil = 0
                             group by w1.power ) 
 ORDER BY W.power DESC, P.age DESC;
 
-2=======================================================
+
+2--------------------------------------------------
 
 
 Select w.id, wp.age, w.coins_needed, w.power
@@ -55,7 +56,9 @@ and w.coins_needed IN (select Min(coins_needed)
                        group by w1.power ) 
 order by pow desc,wp.age desc;
 
---------------------------------------------------
+
+//
+
 
 Select w.id, wp.age, w.coins_needed, w.power
 From Wands w, Wands_Property wp 
@@ -67,7 +70,7 @@ and w.coins_needed IN (select Min(coins_needed)
                        group by w1.power ) 
 order by power desc, wp.age desc;
 
-=======================================================
+--------------------------------------------------
 
 
 
