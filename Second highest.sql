@@ -14,7 +14,10 @@ method:
 
 */
 
+
+
 1--------------------------------------------------
+
 SELECT salary as SecondHighestSalary
 FROM employee
 WHERE salary = (SELECT max(salary) 
@@ -25,7 +28,10 @@ WHERE salary = (SELECT max(salary)
 
 --------------------------------------------------
 
+
+
 2--------------------------------------------------
+
 SELECT salary AS SecondHighestSalary 
 FROM employee
 WHERE salary = (SELECT salary 
@@ -34,6 +40,7 @@ WHERE salary = (SELECT salary
                 ORDER BY salary desc 
                 LIMIT 1, 1); 
 
+//
 
 SELECT
     (SELECT Salary
@@ -45,13 +52,15 @@ SELECT
 
 
 
-3-------------------------------------------------
+3--------------------------------------------------
+
 SELECT salary AS SecondHighestSalary
 FROM (select salary, rank() over(order by salary desc) as rn
         FROM employee) rn
 where rn = 2;
 */
 --------------------------------------------------
+
 
 
 
