@@ -14,8 +14,57 @@ method:
 
 */
 
+-- REFER
+-- https://www.java67.com/2015/01/second-highest-salary-in-mysql-and-sql-server.html
 
 
+
+--CORRECT
+
+
+1-----------------------------------------
+
+SELECT MAX(Salary) as SecondHighestSalary 
+FROM Employee
+WHERE Salary < (SELECT Max(Salary)
+                FROM Employee);
+
+//
+
+select max(salary) SecondHighestSalary 
+from employee 
+where salary not in (select max(salary) from employee);
+
+---------------------------------------------
+
+
+2--------------------------------------------
+
+select 
+    (select distinct salary 
+    from Employee 
+    order by salary desc 
+    limit 1 offset 1) SecondHighestSalary
+
+//
+
+select 
+    (select distinct salary 
+    from Employee 
+    order by salary desc 
+    limit 1, 1) SecondHighestSalary
+---------------------------------------------
+
+
+
+
+
+
+
+
+
+
+--WRONG becuase of the NULL
 1--------------------------------------------------
 
 SELECT salary as SecondHighestSalary
@@ -25,6 +74,8 @@ WHERE salary = (SELECT max(salary)
                 WHERE salary
                 < (SELECT max(salary)
                     FROM  employee));
+-- WHAT'S THE REASON?
+-- BECAUSE OF THE = ?
 
 --------------------------------------------------
 
@@ -48,6 +99,8 @@ SELECT
      ORDER BY Salary DESC
      LIMIT 1 OFFSET 1) AS SecondHighestSalary
 ;
+
+
 --------------------------------------------------
 
 
