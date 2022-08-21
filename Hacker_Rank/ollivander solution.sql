@@ -2,6 +2,7 @@
 ### MYSQL ###
 
 /* 
+
 1. context
  1-1. minimum number of gold galleons needed
  1-2. each non-evil wand 
@@ -13,19 +14,20 @@
  
 3. print
  id, age, coins_needed, and power of the wands
-
+ 
 */
 
 
 /*
-1. SCALAR, INLINE
+
+1. FROM JOIN + SUBQUERY
    from    join
    where   condition + in
 
-2. INLINE VIEW
+2. SUBQUERY
    from    two table
    where   condition
-
+   
 */
 
 1--------------------------------------------------
